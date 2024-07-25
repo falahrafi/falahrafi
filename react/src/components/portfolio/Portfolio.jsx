@@ -1,5 +1,7 @@
-import SectionHeader from "../SectionHeader"
+import SectionHeader from "../header/SectionHeader"
 import PortfolioItem from "./PortfolioItem"
+
+import { Fade } from "react-awesome-reveal";
 
 import iconUix from "../../assets/icons/icon-uiux.png"
 import iconFigma from "../../assets/icons/icon-figma.svg"
@@ -37,15 +39,17 @@ export default function Portfolio() {
       <SectionHeader header="Check out my portfolio" subheader="See My Design and Code Skills in Action" />
       <div className="container mx-auto mt-24">
         <div className="grid grid-cols-3 gap-5">
-          <div className="col-span-1">
-            <PortfolioItem icon={iconUix} categoryOne="UI / UX" categoryTwo="Design" link="/" skills={UixSkills} />
-          </div>
-          <div className="col-span-1">
-            <PortfolioItem icon={iconWeb} categoryOne="Website" categoryTwo="Development" link="/" skills={WebSkills} />
-          </div>
-          <div className="col-span-1">
-            <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="/" skills={LogoSkills} />
-          </div>
+          <Fade cascade damping={0.3}>
+            <div className="col-span-1">
+              <PortfolioItem icon={iconUix} categoryOne="UI / UX" categoryTwo="Design" link="/portfolio/uiux" skills={UixSkills} />
+            </div>
+            <div className="col-span-1">
+              <PortfolioItem icon={iconWeb} categoryOne="Website" categoryTwo="Development" link="/portfolio/web" skills={WebSkills} />
+            </div>
+            <div className="col-span-1">
+              <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="/portfolio/design" skills={LogoSkills} />
+            </div>
+          </Fade>
         </div>
       </div>
     </section>

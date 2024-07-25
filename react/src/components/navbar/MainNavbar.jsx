@@ -1,12 +1,12 @@
 import { Navbar } from "flowbite-react";
-import MainButton from './button/MainButton';
+import MainButton from '../button/MainButton';
 
-import falahrafiLogo from '../assets/falahrafi-logo-design-light-icon.svg';
-import falahrafiText from '../assets/falahrafi-logo-design-light-text.svg';
+import falahrafiLogo from '../../assets/falahrafi-logo-design-light-icon.svg';
+import falahrafiText from '../../assets/falahrafi-logo-design-light-text.svg';
 
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-export default function AppNavbar() {
+export default function MainNavbar() {
 
   return (
     <Navbar className="mx-12 bg-transparent bg-gradient-to-b from-falahrafi-dark/90 via-falahrafi-dark/90 to-falahrafi-dark/0 py-7 z-10 relative">

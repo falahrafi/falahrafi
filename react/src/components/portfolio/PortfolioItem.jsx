@@ -3,7 +3,7 @@ import MainButton from "../button/MainButton"
 
 export default function PortfolioItem({icon, categoryOne, categoryTwo, skills, link}) {
   return (
-    <div className="relative h-[500px] px-8 bg-gradient-to-tr from-white/10 to-white/4 hover:bg-gradient-to-bl hover:from-white/20 hover:to-white/8 hover:border  border-l-white/5  border-b-white/5 border-t-white/20 border-r-white/20 text-start rounded-lg">
+    <div className="relative h-[500px] px-8 bg-gradient-to-tr from-white/10 to-white/5 hover:bg-gradient-to-bl hover:from-white/20 hover:to-white/8 hover:border border-l-neutral-800  border-b-neutral-800 border-t-neutral-500 border-r-neutral-500 text-start rounded-lg">
       <img src={icon} alt="Icon UI/UX Design" className="inline-block w-36 mt-[-64px] mb-2 ms-[-32px]" />
       <h3 className="uppercase font-display font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-900">
         {categoryOne} <br/> {categoryTwo}

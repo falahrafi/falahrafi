@@ -5,6 +5,7 @@
 @layer base {
    body {
       background-color: #101010;
+      background-image: url('../assets/bg-blur.png');
       color: white;
    }
 }

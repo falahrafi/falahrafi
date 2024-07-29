@@ -3,18 +3,100 @@
 @tailwind utilities;
 
 @layer base {
+   ::-moz-selection {
+      /* Code for Firefox */
+      color: white;
+      background: #014426;
+   }
+
+   ::selection {
+      color: white;
+      background: #014426;
+   }
+
    body {
       background-color: #101010;
       background-image: url('../assets/bg-blur.png');
       color: white;
    }
+
+   @keyframes slideIn {
+      from {top: 100%;}
+      to {top: 0%;}
+   }
+
+   #portfolioPage,
+   #projectDetailPage {
+      position: absolute;
+      width: 100%;
+      animation-name: slideIn;
+      animation-duration: .3s;
+   }
 }
 
 @layer components {
+
+   .bubble-title {
+      @apply relative w-fit mx-auto text-white font-header font-bold text-[40px] leading-[48px] md:text-5xl uppercase bg-clip-text after:content-[''] after:w-16 after:border-b-[5px] after:border-solid after:border-falahrafi-green after:rounded-full after:block after:text-center after:mx-auto after:mt-2 after:md:mt-4;
+   }
+
+   .bubble-bg-title {
+      @apply inline-block -z-50 h-[58px] w-[58px] md:h-[60px] md:w-[60px] -me-10 bg-gradient-to-t from-falahrafi-green-dark to-falahrafi-green-light rounded-full;
+   }
+
    #btnCV:hover .cv-line {
       background-color: rgba(255, 255, 255, 0.3) !important;
       box-shadow: none;
       width: 0;
       transition: all .8s ease-in-out;
    }
+
+
+   /* BEGIN: Hamburger Animated Menu */
+
+   .hamburger-menu {
+      width: 38px;
+      height: 5px;
+      border-radius: 30px;
+      background-image: linear-gradient(to right, theme('colors.falahrafi-green-dark'), theme('colors.falahrafi-green-light'));
+      /* box-shadow: 0 6px 30px 0px rgba(239, 155, 0, 0.3); */
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+   }
+
+   .hamburger-menu::before,
+   .hamburger-menu::after {
+      content: '';
+      position: absolute;
+      width: 38px;
+      height: 5px;
+      border-radius: 30px;
+      background-image: linear-gradient(to right, theme('colors.white'), rgba(255, 255, 255, 0.75));
+      /* box-shadow: 0 6px 30px 0px rgba(239, 155, 0, 0.3); */
+      transition: all .5s ease-in-out;
+   }
+
+   .hamburger-menu::before {
+      transform: translate(-8px,-13px);
+   }
+   .hamburger-menu::after{
+      transform: translate(-8px,13px);
+   }
+
+   .hamburger-menu-open {
+      transform: translateX(-50px);
+      background: transparent;
+      box-shadow: none;
+   }
+   .hamburger-menu-open::before {
+      transform: rotate(45deg) translate(35px,-35px);
+   }
+   .hamburger-menu-open::after {
+      transform: rotate(-45deg) translate(35px,35px);
+   }
+
+   /* END: Hamburger Animated Menu */
+
+   
+   
 }

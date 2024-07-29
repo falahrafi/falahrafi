@@ -10,7 +10,7 @@ import review7 from "../../assets/testimonials/review-07.png"
 
 export default function Testimonial() {
   return (
-    <section id="testimonial" className="px-12 text-center w-100">
+    <section id="testimonial" className="px-6 sm:px-16 text-center w-100 scroll-mt-28">
       <SectionHeader header="Professional Testimonials" subheader="My Credentials and Professional Development" />
       <div className="container mx-auto mt-16">
         <div className="columns-1 gap-3 sm:columns-2 sm:gap-8 md:columns-3 [&>img:not(:first-child)]:mt-8">

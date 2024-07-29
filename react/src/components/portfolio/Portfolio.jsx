@@ -35,22 +35,22 @@ const LogoSkills = [iconAi, iconPs, iconCanva]
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="px-12 text-center bg-top">
+    <section id="portfolio" className="px-6 sm:px-16 text-center bg-top scroll-mt-28">
       <SectionHeader header="Check out my portfolio" subheader="See My Design and Code Skills in Action" />
       <div className="container mx-auto mt-24">
-        <div className="grid grid-cols-3 gap-5">
-          <Fade cascade damping={0.3}>
-            <div className="col-span-1">
-              <PortfolioItem icon={iconUix} categoryOne="UI / UX" categoryTwo="Design" link="/portfolio/uiux" skills={UixSkills} />
-            </div>
-            <div className="col-span-1">
-              <PortfolioItem icon={iconWeb} categoryOne="Website" categoryTwo="Development" link="/portfolio/web" skills={WebSkills} />
-            </div>
-            <div className="col-span-1">
-              <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="/portfolio/design" skills={LogoSkills} />
-            </div>
-          </Fade>
-        </div>
+        <Fade cascade damping={0.2}>
+          <ul className="grid grid-cols-12 gap-y-16 md:gap-x-8 md:gap-y-16 lg:gap-5">
+              <li className="col-span-12 md:col-span-6 lg:col-span-4">
+                <PortfolioItem icon={iconUix} categoryOne="UI / UX" categoryTwo="Design" link="/portfolio/uiux" skills={UixSkills} />
+              </li>
+              <li className="col-span-12 md:col-span-6 lg:col-span-4">
+                <PortfolioItem icon={iconWeb} categoryOne="Website" categoryTwo="Development" link="/portfolio/web" skills={WebSkills} />
+              </li>
+              <li className="col-span-12 md:col-start-4 md:col-span-6 lg:col-span-4">
+                <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="/portfolio/design" skills={LogoSkills} />
+              </li>
+          </ul>
+        </Fade>
       </div>
     </section>
   )

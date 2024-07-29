@@ -23,11 +23,17 @@
 
 .swiper-slide > img {
   transform: scale(.9);
+  transition: all ease-in-out .3s;
 }
 
-.swiper-slide-next,
-.swiper-slide-prev {
+.swiper-slide {
   filter: blur(3px) opacity(.15);
+  transition: all ease-in-out .3s;
+}
+
+.swiper-slide-active {
+  z-index: 10;
+  filter: blur(0px) opacity(1);
 }
 
 .swiper-slide-active > img {
@@ -74,7 +80,7 @@
   font-style: normal;
   font-size: 40px;
   padding: 12px 14px;
-  margin: 5px;
+  margin: 3px;
   text-decoration:none;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 100px;
@@ -86,4 +92,29 @@
 .swiper-button-next:hover::after {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 10px 12px;
+}
+
+
+/* BREAKPOINTS */
+
+@media only screen and (max-width: 1024px) {
+  .swiper {
+    padding-top: 66px;
+  }
+
+  .swiper-slide > img {
+    transform: scale(.95);
+  }
+
+  .swiper-slide-active > img {
+    transform: scale(1.6);
+  }
+
+  .swiper-button-prev {
+    left: 8%;
+  }
+
+  .swiper-button-next {
+    right: 8%;
+  }
 }

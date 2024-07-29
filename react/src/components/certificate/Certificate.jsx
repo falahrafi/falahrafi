@@ -1,4 +1,8 @@
+import { useState } from "react";
+
+import CertificateItem from "./CertificateItem"
 import SectionHeader from "../header/SectionHeader"
+import SecondaryButton from "../button/SecondaryButton"
 import gridPattern from '../../assets/grid-pattern-fade.png'
 
 // Import Swiper React components
@@ -36,13 +40,62 @@ const certificates = [
     provider: "Dicoding Indonesia",
     image: dicodingCert
   },
+    {
+    name: "Front-End Web Developer Expert",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "Git dan GitHub",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "React Web Developer Expert",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "Back-End Developer Beginner",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+    {
+    name: "Front-End Web Developer Expert",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "Git dan GitHub",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "React Web Developer Expert",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
+  {
+    name: "Back-End Developer Beginner",
+    provider: "Dicoding Indonesia",
+    image: dicodingCert
+  },
 ]
 
 export default function Certificate() {
+
+  const [visible, setVisible] = useState(3);
+
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 3);
+  };
+
   return (
-    <section id="certificate" className="px-12 text-center bg-top w-100" style={{backgroundImage: 'url(' + gridPattern + ')'}}>
+    <section id="certificate" className="px-6 sm:px-16 text-center bg-top w-100 scroll-mt-28" style={{backgroundImage: 'url(' + gridPattern + ')'}}>
       <SectionHeader header="Certificates Obtained" subheader="My Credentials and Professional Development" />
-      <div className="container mx-auto mt-24">
+
+      {/* LARGER DEVICE */}
+      <div className="hidden md:block container mx-auto mt-24">
         <Swiper
           slidesPerView={3}
           loop={true}
@@ -54,19 +107,45 @@ export default function Certificate() {
           {
             certificates.map((certificate) => {
               return (
-                <SwiperSlide key={certificate.name}>
-                  <img src={certificate.image} alt="Certificate" className="mb-16 select-none" />
-                  <h4 className="select-none font-display font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500">
-                    {certificate.name}
-                  </h4>
-                  <h5 className="select-none font-display font-bold text-base bg-clip-text text-transparent bg-gradient-to-r from-falahrafi-green-light via-falahrafi-green-light to-falahrafi-green-dark">
-                    {certificate.provider}
-                  </h5>
+                <SwiperSlide key={certificate.name} className="group">
+                  <CertificateItem 
+                    key={certificate.name}
+                    name={certificate.name} 
+                    provider={certificate.provider} 
+                    image={certificate.image}
+                  />
                 </SwiperSlide>
               )
             })
           }
         </Swiper>
+      </div>
+
+      {/* SMALLER DEVICE */}
+      <div className="md:hidden container mx-auto mt-24">
+          {
+            certificates.slice(0, visible).map((certificate) => {
+              return (
+                <CertificateItem 
+                  key={certificate.name}
+                  name={certificate.name} 
+                  provider={certificate.provider} 
+                  image={certificate.image}
+                />
+              )
+            })
+          }
+
+          {
+            // If all certificates have been loaded, don't show the button
+            certificates.length - visible < 3
+            ? ""
+            : (
+              <div className="py-6" onClick={showMoreItems}>
+                <SecondaryButton link="/" text="Load More" rounded="rounded-md" />
+              </div>
+            )
+          }
       </div>
     </section>
   )

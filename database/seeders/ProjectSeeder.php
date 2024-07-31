@@ -16,7 +16,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([[
                 'name' => 'Galseid Website',
                 'about' => 'Galseid is a web application that provides a collection of paintings, information on prominent painters, art event agenda, and a stunning merchandise catalog. Through Galseid, we strive to bridge traditional art with modern technology, overcoming the challenge of lack of accessibility and information on Indonesian art and culture.',
-                'image' => 'https://cdn.dribbble.com/userupload/12204622/file/original-9d6cba717e32798077cef0aff6980f6a.png?resize=1024x768',
+                'image' => 'https://api.falahrafi.com/images/preview-image.jpg',
                 'video' => 'https://www.youtube.com/watch?v=Qthag7Tk7YQ',
                 'website' => 'https://galseid.falahrafi.com/',
                 'sourceCode' => 'https://github.com/galeri-seni-digital-indonesia/galeri-seni',

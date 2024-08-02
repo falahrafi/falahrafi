@@ -1,26 +1,35 @@
+import API_CONFIG from "../../scripts/globals/api-config";
 import SectionHeader from "../header/SectionHeader"
 
-import review1 from "../../assets/testimonials/review-01.png"
-import review2 from "../../assets/testimonials/review-02.png"
-import review3 from "../../assets/testimonials/review-03.png"
-import review4 from "../../assets/testimonials/review-04.png"
-import review5 from "../../assets/testimonials/review-05.png"
-import review6 from "../../assets/testimonials/review-06.png"
-import review7 from "../../assets/testimonials/review-07.png"
+import { useQuery } from 'react-query';
+import { fetchAllTestimonials } from "../../scripts/fetchers/testimonials";
+
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 export default function Testimonial() {
+
+  // FETCH API INITIALIZATION
+  const { data: testimonials} = useQuery(['testimonials'], fetchAllTestimonials);
+
   return (
     <section id="testimonial" className="px-6 sm:px-16 text-center w-100 scroll-mt-28">
       <SectionHeader header="Professional Testimonials" subheader="My Credentials and Professional Development" />
       <div className="container mx-auto mt-16">
         <div className="columns-1 gap-3 sm:columns-2 sm:gap-8 md:columns-3 [&>img:not(:first-child)]:mt-8">
-            <img src={review1} className="w-100 rounded-xl"/>
-            <img src={review2} className="w-100 rounded-xl"/>
-            <img src={review3} className="w-100 rounded-xl"/>
-            <img src={review4} className="w-100 rounded-xl"/>
-            <img src={review5} className="w-100 rounded-xl"/>
-            <img src={review6} className="w-100 rounded-xl"/>
-            <img src={review7} className="w-100 rounded-xl"/>
+          {
+            testimonials?.map((testimonial) => {
+              return (
+                <img 
+                  key={testimonial.id} 
+                  src={ API_CONFIG.IMAGES_URL + "placeholders/testimonials-blur.webp"} 
+                  data-src={ API_CONFIG.IMAGES_URL + "testimonials/" + testimonial.image} 
+                  data-sizes="auto"
+                  className="lazyload w-full rounded-xl border-2 border-white"
+                />
+              )
+            })
+          }
         </div>
       </div>
     </section>

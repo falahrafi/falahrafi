@@ -36,6 +36,31 @@
 
 @layer components {
 
+   #projectContent h1, 
+   #projectContent h2,
+   #projectContent h3,
+   #projectContent h4,
+   #projectContent h5,
+   #projectContent h6 {
+      @apply w-fit mb-3 uppercase font-header font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-500
+   }
+
+   #projectContent h1 { @apply text-3xl }
+   #projectContent h2 { @apply text-2xl }
+   #projectContent h3 { @apply text-xl }
+   #projectContent h4 { @apply text-lg }
+   #projectContent h5 { @apply text-base }
+   #projectContent h6 { @apply text-sm }
+
+   #projectContent h1:not(:first-child), 
+   #projectContent h2:not(:first-child),
+   #projectContent h3:not(:first-child),
+   #projectContent h4:not(:first-child),
+   #projectContent h5:not(:first-child),
+   #projectContent h6:not(:first-child) {
+      @apply mt-10
+   }
+
    .bubble-title {
       @apply relative w-fit mx-auto text-white font-header font-bold text-[40px] leading-[48px] md:text-5xl uppercase bg-clip-text after:content-[''] after:w-16 after:border-b-[5px] after:border-solid after:border-falahrafi-green after:rounded-full after:block after:text-center after:mx-auto after:mt-2 after:md:mt-4;
    }

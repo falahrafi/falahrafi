@@ -28,9 +28,11 @@ class ProjectToolSeeder extends Seeder
             ['projectId' => 1, 'toolId' => 14],
             ['projectId' => 1, 'toolId' => 15],
             ['projectId' => 1, 'toolId' => 18],
+
             ['projectId' => 2, 'toolId' => 17],
             ['projectId' => 2, 'toolId' => 18],
             ['projectId' => 2, 'toolId' => 20],
+            
             ['projectId' => 3, 'toolId' => 16],
             ['projectId' => 3, 'toolId' => 17],
         ]);

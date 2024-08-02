@@ -20,9 +20,9 @@ export default function Home() {
         <Portfolio />
         <div className="h-28 w-fit border-2 border-dashed border-white/15 rounded-full mx-auto my-12"></div>
         <Certificate />
-        <div className="h-28 w-fit border-2 border-dashed border-white/15 rounded-full mx-auto mt-10 mb-16"></div>
+        <div className="h-28 w-fit border-2 border-dashed border-white/15 rounded-full mx-auto mt-6 mb-16"></div>
         <Testimonial />
-        <div className="h-28 w-fit border-2 border-dashed border-white/15 rounded-full mx-auto mt-10 mb-16"></div>
+        <div className="h-28 w-fit border-2 border-dashed border-white/15 rounded-full mx-auto mt-16 mb-16"></div>
         <About />
       </Fade>
       <Footer className="px-6" />

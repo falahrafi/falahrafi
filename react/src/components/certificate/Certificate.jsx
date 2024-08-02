@@ -1,4 +1,9 @@
+import API_CONFIG from "../../scripts/globals/api-config";
+
 import { useState } from "react";
+
+import { useQuery } from 'react-query';
+import { fetchAllCertificates } from "../../scripts/fetchers/certificates";
 
 import CertificateItem from "./CertificateItem"
 import SectionHeader from "../header/SectionHeader"
@@ -17,74 +22,77 @@ import '../../styles/certificate.css'
 // import required modules
 import { Navigation } from 'swiper/modules'
 
-import dicodingCert from "../../assets/dicoding-certificate-sample.png"
+// import dicodingCert from "../../assets/dicoding-certificate-sample.png"
 
-const certificates = [
-  {
-    name: "Front-End Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Git dan GitHub",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "React Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Back-End Developer Beginner",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-    {
-    name: "Front-End Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Git dan GitHub",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "React Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Back-End Developer Beginner",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-    {
-    name: "Front-End Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Git dan GitHub",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "React Web Developer Expert",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-  {
-    name: "Back-End Developer Beginner",
-    provider: "Dicoding Indonesia",
-    image: dicodingCert
-  },
-]
+// const certificates = [
+//   {
+//     name: "Front-End Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Git dan GitHub",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "React Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Back-End Developer Beginner",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//     {
+//     name: "Front-End Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Git dan GitHub",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "React Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Back-End Developer Beginner",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//     {
+//     name: "Front-End Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Git dan GitHub",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "React Web Developer Expert",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+//   {
+//     name: "Back-End Developer Beginner",
+//     provider: "Dicoding Indonesia",
+//     image: dicodingCert
+//   },
+// ]
 
 export default function Certificate() {
 
   const [visible, setVisible] = useState(3);
+
+  // FETCH API INITIALIZATION
+  const { data: certificates} = useQuery(['certificates'], fetchAllCertificates);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 3);
@@ -105,14 +113,15 @@ export default function Certificate() {
           className="mySwiper"
         >
           {
-            certificates.map((certificate) => {
+            certificates?.map((certificate) => {
               return (
                 <SwiperSlide key={certificate.name} className="group">
                   <CertificateItem 
-                    key={certificate.name}
+                    key={certificate.id}
                     name={certificate.name} 
-                    provider={certificate.provider} 
-                    image={certificate.image}
+                    provider={certificate.provider}
+                    link={certificate.link} 
+                    image={ API_CONFIG.IMAGES_URL + "certificates/" + certificate.image}
                   />
                 </SwiperSlide>
               )
@@ -124,13 +133,14 @@ export default function Certificate() {
       {/* SMALLER DEVICE */}
       <div className="md:hidden container mx-auto mt-24">
           {
-            certificates.slice(0, visible).map((certificate) => {
+            certificates?.slice(0, visible).map((certificate) => {
               return (
                 <CertificateItem 
                   key={certificate.name}
                   name={certificate.name} 
                   provider={certificate.provider} 
-                  image={certificate.image}
+                  link={certificate.link} 
+                  image={ API_CONFIG.IMAGES_URL + "certificates/" + certificate.image}
                 />
               )
             })
@@ -138,7 +148,7 @@ export default function Certificate() {
 
           {
             // If all certificates have been loaded, don't show the button
-            certificates.length - visible < 3
+            certificates?.length - visible < 3
             ? ""
             : (
               <div className="py-6" onClick={showMoreItems}>

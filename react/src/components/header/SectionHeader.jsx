@@ -15,5 +15,5 @@ export default function SectionHeader({header, subheader}) {
 
 SectionHeader.propTypes = {
   header: PropTypes.string.isRequired,
-  subheader: PropTypes.string.isRequired,
+  subheader: PropTypes.string,
 }

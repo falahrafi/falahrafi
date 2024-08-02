@@ -35,7 +35,7 @@ export default function PortfolioPage() {
   }
 
   // FETCH API INITIALIZATION
-  const { isLoading, isSuccess, isError, data: projects, error } = useQuery(['projects', categoryId], fetchProjectByCategory);
+  const { isSuccess, data: projects} = useQuery(['projects', categoryId], fetchProjectByCategory);
 
   // Back to Previous Page if 'Esc' Clicked
   useEffect(() => {
@@ -47,23 +47,8 @@ export default function PortfolioPage() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [navigate]);
 
-
-  // FETCH API STATUS
-  if (isLoading) {
-    console.log("Loading...");
-  }
-
-  if (isSuccess) {
-    console.log(Object.values(projects))
-    console.log("Type: " + typeof Object.values(projects));
-  }
-
-  if (isError) {
-    console.log("Error: ", error.message);
-  }
-
   return (
-    <div id="portfolioPage" className="px-6 sm:px-16 md:px-28" style={{backgroundImage: 'url(' + wavyPattern + ')'}}>
+    <div id="portfolioPage" className="relative min-h-screen px-6 sm:px-16 md:px-28" style={{backgroundImage: 'url(' + wavyPattern + ')'}}>
 
       <div className="hidden sm:block absolute top-12 right-10">
         <ActionButton link="/#portfolio" icon={faXmark} shortcutKey="Esc" />
@@ -76,9 +61,9 @@ export default function PortfolioPage() {
 
       <SecondaryNavbar text={categoryName} />
 
-      {/* {
-        isSuccess ? <ProjectList data={Object.values(projects)} /> : ""
-      } */}
+      <div className="min-h-screen">
+      { isSuccess ? <ProjectList data={Object.values(projects)} /> : "" }
+      </div>
 
       <Footer />
     </div>

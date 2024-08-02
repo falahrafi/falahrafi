@@ -1,4 +1,4 @@
-import falahrafiHero from '../../assets/falahrafi-hero.png'
+import falahrafiHero from '../../assets/falahrafi-hero.webp'
 import SocialButton from '../button/SocialButton'
 
 import { faLinkedinIn, faInstagram, faGithub, faDribbble } from '@fortawesome/free-brands-svg-icons';

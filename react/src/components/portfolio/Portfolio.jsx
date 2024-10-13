@@ -37,7 +37,7 @@ export default function Portfolio() {
               </li>
               <li className="col-span-12 md:col-start-4 md:col-span-6 lg:col-span-4">
                 { isSuccessToolsLogo 
-                  ? <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="/portfolio/design" tools={Object.values(toolsLogo)} />
+                  ? <PortfolioItem icon={iconLogo} categoryOne="Logo Design &" categoryTwo="Digital Design" link="https://dribbble.com/falahrafi" tools={Object.values(toolsLogo)} />
                   : ""
                 }
               </li>

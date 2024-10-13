@@ -37,9 +37,9 @@ export default function ProjectDetailPage() {
     const handleEsc = (event) => {
       if (event.key === 'Escape' || event.key === 'Backspace' ) { navigate(-2); }
     };
-    window.addEventListener('keydown', handleEsc);
+    window.addEventListener('keyup', handleEsc);
 
-    return () => window.removeEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keyup', handleEsc);
   }, [navigate]);
 
   return (
@@ -58,8 +58,21 @@ export default function ProjectDetailPage() {
       <section id="projectDetails" className="container text-center mx-auto">
         <div className="grid grid-cols-12">
           <div className="col-span-12 lg:col-start-3 lg:col-span-8 2xl:col-start-4 2xl:col-span-6">
-            <div className="mb-12 sm:mb-8 p-3 md:p-4 backdrop-blur-sm bg-gradient-to-bl from-white/25 to-white/10 border border-l-neutral-700  border-b-neutral-700 border-t-neutral-500 border-r-neutral-500 text-start rounded-lg">
-              <img src={isSuccessProjects ? project.image : ""} className="h-[210px] sm:h-[250px] md:h-[290px] lg:h-[300px] xl:h-[380px] 2xl:h-[360px] w-full object-cover object-top rounded-lg" alt=""/>
+            <div className="mb-12 p-1 md:p-2.5 backdrop-blur-sm bg-gradient-to-br from-white/15 to-white/5 text-start rounded-lg">
+                { isSuccessProjects 
+                  ? (project.video == "" 
+                      ? <img src={isSuccessProjects ? project.image : ""} className="w-full object-cover object-top rounded-lg" alt=""/>
+                      : <iframe 
+                          className="w-full aspect-video rounded-lg border-none"
+                          src={isSuccessProjects ? project.video : ""}
+                          title={isSuccessProjects ? project.name : "Project Name"}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          referrerPolicy="strict-origin-when-cross-origin" 
+                          allowfullscreen>
+                        </iframe>
+                    )
+                  : ""
+                }
             </div>
 
             { isSuccessProjects 
@@ -78,7 +91,7 @@ export default function ProjectDetailPage() {
 
             <div 
               id="projectContent"
-              className="mt-16 p-9 font-header font-light text-base leading-7 text-justify tracking-wider bg-gradient-to-b from-white/5 to-white/0 rounded-xl border-t-2 border-falahrafi-green"
+              className="mt-12 p-9 font-header font-light text-base leading-7 text-justify tracking-wider bg-gradient-to-b from-white/5 to-white/0 rounded-xl border-t-2 border-falahrafi-green"
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(isSuccessProjects ? project.about : "") }} 
             />
 

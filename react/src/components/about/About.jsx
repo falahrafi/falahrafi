@@ -12,10 +12,16 @@ export default function About() {
           </div>
           <div className="col-span-10 col-start-2 lg:col-span-8 lg:col-start-3 2xl:col-span-10 2xl:col-start-2 text-justify font-display text-sm sm:text-base leading-7 font-light tracking-wide">
             <p className="mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              As a <b className="font-semibold">Pi-Shaped person</b>, I possess a unique blend of skills that encompass both web programming and design, allowing me to approach projects from multiple angles.
             </p>
-            <p>
-              Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <p className="mb-6">
+              My passion lies in <b className="font-semibold">UI/UX Design</b> and <b className="font-semibold">Web Development</b>, where I focus on creating engaging and user-friendly experiences. I thrive on transforming creative ideas into functional websites that not only look great but also provide seamless navigation and usability.
+            </p>
+            <p className="mb-6">
+              I also specialize in <b className="font-semibold">Logo and Digital Design</b>, helping brands establish their visual identity in the digital landscape. Each design I create is thoughtfully crafted to reflect the essence of the brand while ensuring it stands out in a competitive market.
+            </p>
+            <p className="mb-6">
+              Additionally, I explore other areas, such as <b className="font-semibold">machine learning, startup development, and project management,</b> broadening my understanding and skills.
             </p>
           </div>
         </div>

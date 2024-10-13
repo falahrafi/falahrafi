@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('about');
             $table->string('image');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->string('website')->nullable();
             $table->string('sourceCode')->nullable();
             $table->foreignId('categoryId');

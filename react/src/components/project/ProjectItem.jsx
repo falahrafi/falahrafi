@@ -16,7 +16,7 @@ function ProjectItem({id, name, image}) {
           src={ API_CONFIG.IMAGES_URL + "placeholders/project-images-blur.webp"} 
           data-src={image} 
           data-sizes="auto"
-          className="lazyload h-[210px] min-[490px]:h-[250px] sm:h-[290px] md:h-[330px] lg:h-[220px] xl:h-[270px] 2xl:h-[360px] w-full object-cover object-top rounded-md"
+          className="lazyload h-[210px] min-[490px]:h-[250px] sm:h-[290px] md:h-[330px] lg:h-[220px] xl:h-[270px] 2xl:h-[360px] w-full object-cover object-center rounded-md"
         />
         
         {/* <img src={image} className="h-[210px] min-[490px]:h-[250px] sm:h-[290px] md:h-[330px] lg:h-[220px] xl:h-[270px] 2xl:h-[360px] w-full object-cover object-top rounded-md" alt=""/> */}

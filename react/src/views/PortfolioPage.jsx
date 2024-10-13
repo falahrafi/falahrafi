@@ -42,9 +42,9 @@ export default function PortfolioPage() {
     const handleEsc = (event) => {
       if (event.key === 'Escape' || event.key === 'Backspace' ) navigate(-1);
     };
-    window.addEventListener('keydown', handleEsc);
+    window.addEventListener('keyup', handleEsc);
 
-    return () => window.removeEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keyup', handleEsc);
   }, [navigate]);
 
   return (

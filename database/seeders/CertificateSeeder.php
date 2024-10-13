@@ -15,6 +15,12 @@ class CertificateSeeder extends Seeder
     {
         DB::table('certificates')->insert([
             [
+                'name' => 'Advanced Level English - C1 (570/599)',
+                'provider' => 'EnglishScore by British Council',
+                'link' => 'https://api.falahrafi.com/images/certificates/british-council-english-score.webp',
+                'image' => 'british-council-english-score.webp',
+            ],
+            [
                 'name' => 'Front-End Web Developer Expert',
                 'provider' => 'Dicoding Indonesia',
                 'link' => 'https://www.dicoding.com/certificates/07Z68NDEMXQR',

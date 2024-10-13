@@ -65,7 +65,7 @@ export default function MainNavbar() {
               <MainButton link="/" icon={fasEnvelope} iconColor="text-white" rounded="rounded-full" textSize="text-md" padding="px-5 py-3" />
             </div>
             <div className='hidden md:block'>
-              <MainButton link="/" text="Hire Me" icon={faEnvelope} rounded="rounded-full" />
+              <MainButton link="mailto:falahabdurrafi@email.com" text="Hire Me" icon={faEnvelope} rounded="rounded-full" />
             </div>
           </div>
         </div>
